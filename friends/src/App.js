@@ -31,7 +31,11 @@ const StyledLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Nav = styled.nav``;
+const Nav = styled.nav`
+  display: flex;
+  justify-content: space-between;
+  width: 500px;
+`;
 
 class App extends React.Component {
   render() {
@@ -41,10 +45,11 @@ class App extends React.Component {
           <NavContainer>
             <Nav>
               <StyledLink to="/login">Login</StyledLink>
+              <StyledLink to="/protected">Protected Content</StyledLink>
             </Nav>
           </NavContainer>
           <Route path="/login" component={Login} />
-          <Route path="/protected" component={FriendsList} />
+          <ProtectedRoute exact path="/protected" component={FriendsList} />
         </AppContainer>
       </Router>
     );
